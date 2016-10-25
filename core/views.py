@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.core.urlresolvers import reverse_lazy
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.db.models import Q
 from django.conf import settings
 from django.views import generic
@@ -8,33 +9,38 @@ from .models import Product
 import json
 
 
-class ProductListView(generic.ListView):
+class HomeView(generic.TemplateView):
     template_name = 'index.html'
+
+
+class ProductListView(LoginRequiredMixin, generic.ListView):
+    template_name = 'core/product_list.html'
     queryset = Product.objects.all()
     context_object_name = 'products'
     paginate_by = 100
 
 
-class ProductCreateView(generic.CreateView):
+class ProductCreateView(LoginRequiredMixin, generic.CreateView):
     template_name = 'core/product_form.html'
     model = Product
     fields = ['code', 'product']
-    success_url = reverse_lazy('core:home')
+    success_url = reverse_lazy('core:product_list')
 
 
-class ProductDetailView(generic.DetailView):
+class ProductDetailView(LoginRequiredMixin, generic.DetailView):
     model = Product
 
 
-class ProductUpdateView(generic.UpdateView):
+class ProductUpdateView(LoginRequiredMixin, generic.UpdateView):
     model = Product
     fields = ['code', 'product']
-    success_url = reverse_lazy('core:home')
+    success_url = reverse_lazy('core:product_list')
 
 
-class ProductDeleteView(generic.DeleteView):
+class ProductDeleteView(LoginRequiredMixin, generic.DeleteView):
     model = Product
-    success_url = reverse_lazy('core:home')
+    success_url = reverse_lazy('core:product_list')
+
 
 class AutoComplete(generic.View):
     def get(self, request, *args, **kwargs):
