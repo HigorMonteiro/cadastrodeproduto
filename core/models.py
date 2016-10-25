@@ -4,8 +4,8 @@ from django.core.urlresolvers import reverse
 
 
 class Product(models.Model):
-    code = models.IntegerField()
-    product = models.CharField(max_length=255)
+    code = models.IntegerField('Codigo')
+    product = models.CharField('Produto', max_length=255)
 
     class Meta:
         ordering = ['-id']
