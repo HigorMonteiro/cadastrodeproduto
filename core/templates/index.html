@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% load pagination %}
+
+{% block container %}
+  <!-- Table -->
+  <div class="container">
+  <h2>Produtos </h2>
+  <p>Tabela de produtos cadastrados :</p>
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Codigo</th>
+        <th>Produtos</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for product in products %}
+      <tr>
+        <td>{{product.code}}</td>
+        <td>{{ product.product}}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% pagination request paginator page_obj %}
+{% endblock %}
