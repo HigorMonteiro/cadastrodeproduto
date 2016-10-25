@@ -2,34 +2,36 @@
 {% load pagination %}
 
 {% block container %}
-  <!-- Table -->
-  <div class="container">
+<!-- Table -->
+<div class="container">
   <h2>Produtos </h2>
-  <p>Tabela de produtos cadastrados :</p>
+  <p>Tabela de produtos cadastrados :
+  </p>
   <div class="col-md-9">
-  <table class="table table-bordered">
-    <thead>
-      <tr>
-        <th>Codigo</th>
-        <th>Produtos</th>
-        <th>AÇÕES</th>
-      </tr>
-    </thead>
-    <tbody>
-      {% for product in products %}
-      <tr>
-        <td>{{product.code}}</td>
-        <td>{{ product.product}}</td>
+    <br><a href="{% url 'core:product_add' %}"><button type="button" class=" glyphicon glyphicon-plus btn btn-success"> Cadastrar Produto</button></a></br></br>
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>Codigo</th>
+          <th>Produtos</th>
+          <th>AÇÕES</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for product in products %}
+        <tr>
+          <td>{{product.code}}</td>
+          <td>{{ product.product}}</td>
 
-        <td><a   href="{{ product.get_absolute_url }}"><button class="btn btn-info">VISUALIZAR</button></a>
-        <a href="{% url 'core:product_update' product.pk %}"><button class="btn btn-primary" type="submit">EDITAR</button></a>
-        <a href="{% url 'core:product_delete' product.pk %}"><button class="btn btn-danger" type="submit">DELETAR</button></a></td>
+          <td><a   href="{{ product.get_absolute_url }}"><button class="btn btn-info">VISUALIZAR</button></a>
+            <a href="{% url 'core:product_update' product.pk %}"><button class="btn btn-primary " type="submit">EDITAR</button></a>
+            <a href="{% url 'core:product_delete' product.pk %}"><button class="btn btn-danger " type="submit">DELETAR</button></a></td>
 
-      </tr>
-      {% endfor %}
-    </tbody>
-  </table>
-</div>
-</div>
-{% pagination request paginator page_obj %}
-{% endblock %}
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+  {% pagination request paginator page_obj %}
+  {% endblock %}

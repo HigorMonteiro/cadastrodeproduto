@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% load bootstrap %}
+{% block container %}
+</br></br>
+<div class="container">
+  <div class="header clearfix">
+    <div class="row">
+      <div class="col-md-offset-4 col-md-6">
+        <form method='post'>
+          {% csrf_token %}
+          <p>voce tem certeza? </br></br>*{{ object.code }}</br>*{{ object.product }}</br></br></p>
+          <div class="form-group">
+            <div class="col-md-6 ">
+              <a href="{% url 'core:home'%}"><button class="btn btn-danger" type="submit">NÃO</button></a>
+              <button type="submit" class="btn btn-primary">SIM</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

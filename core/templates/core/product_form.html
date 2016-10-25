@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% load bootstrap %}
+{% block container %}
+</br></br>
+<div class="container">
+  <div class="header clearfix">
+    <div class="row">
+      <div class="col-xs-6 col-md-6">
+        <form action="" method="post">{% csrf_token %}
+
+          <fieldset>
+            <div class="form-group">
+              {{ form.code|bootstrap }}
+              {{ form.product|bootstrap }}
+            </div>
+            <div class="form-group">
+              <div class="col-md-6 col-md-offset-3">
+                <a href="{% url 'core:home'%}"><button class="btn btn-danger" type="submit">Cancelar</button></a>
+                <button type="submit" class="btn btn-primary">Enviar</button>
+              </div>
+            </div>
+          </fieldset>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
