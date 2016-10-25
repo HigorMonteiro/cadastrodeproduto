@@ -1,8 +1,10 @@
 from django.conf.urls import url, include
 from . import views
-from core.views import ProductListView
+from core.views import ProductListView, ProductCreateView, ProductUpdateView, ProductDetailView
 
 
 urlpatterns = [
     url(r'^$', ProductListView.as_view(), name='home'),
+    url(r'^add/$', ProductCreateView.as_view(), name='product_add'),
+    url(r'^product/(?P<pk>\d+)/$', ProductDetailView.as_view(), name='product_detail'),
 ]
