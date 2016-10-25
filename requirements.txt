@@ -1,5 +1,4 @@
 Django
-psycopg2
 requests==2.11.1
 django-widget-tweaks==1.4.1
 django-bootstrap-form==3.2
