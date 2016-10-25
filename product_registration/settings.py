@@ -134,7 +134,7 @@ LOGOUT_URL = 'core:logout'
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
 
-STATIC_URL = '/static/'
+STATIC_URL = '/static/assets/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 #CONFGURAÇÃO PARA HEROKU
