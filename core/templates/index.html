@@ -22,7 +22,7 @@
         <td>{{ product.product}}</td>
 
         <td><a   href="{{ product.get_absolute_url }}"><button class="btn btn-info">VISUALIZAR</button></a>
-        <a href="#"><button class="btn btn-primary" type="submit">EDITAR</button></a>
+        <a href="{% url 'core:product_update' product.pk %}"><button class="btn btn-primary" type="submit">EDITAR</button></a>
         <a href="#"><button class="btn btn-danger" type="submit">DELETAR</button></a></td>
 
       </tr>
