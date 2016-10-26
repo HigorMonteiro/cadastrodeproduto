@@ -12,6 +12,11 @@ Cadastro do codigo e nome do produto.
 
 http://sistemaderegistro.herokuapp.com/
 
+```bash
+login : admin
+senha : admin@admin
+```
+
 ## Baixando e rodando a app
 
 
