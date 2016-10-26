@@ -57,3 +57,5 @@ $ docker-compose run web python manage.py createsuperuser
 $ docker-compose run web python manage.py populate
 $ docker-compose up
 ```
+
+Os valores inteiros são gerados randomicamente. Já os valores de texto são obtidos através de um command que faz um crawler na api (http://api.randomuser.me/ http://api.randomuser.me/).
