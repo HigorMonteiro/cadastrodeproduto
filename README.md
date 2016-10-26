@@ -31,6 +31,7 @@ $ cd cadastrodeproduto
 $ virtualenv .env -p /usr/bin/python3.5
 $ source .venv/bin/activate
 $ pip install -r requirements.txt
+$ python manage.py migrate
 $ python manage.py populate
 $ python manage.py runserver
 ```
