@@ -11,7 +11,7 @@ class Command(BaseCommand):
     def get_json(self):
         self.stdout.write('Hello world.')
 
-        url = 'https://api.randomuser.me/?results=50'
+        url = 'https://api.randomuser.me/?results=150'
 
         return requests.get(url).json()['results']
 
